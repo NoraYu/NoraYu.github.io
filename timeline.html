@@ -8,86 +8,102 @@
         @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
         @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
         body {
-            font-family: "Open Sans", sans-serif;
-            margin: 0;
-            padding: 0 4em;
+            font: 100% "Lato", sans-serif;
+            font-weight: 300;
+            height: 100%;
+            background-color: #4D4545;
         }
 
-
-
-        font-face {
-            font-family: 'Glyphicons Halflings';
-            src: url('../fonts/glyphicons-halflings-regular.eot');
-            src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+        .blue-bg {
+            background-color: #4D4545;
+            color: #ED8D8D;
+            height: 100%;
         }
 
-        main {
-            min-width: 300px;
-            max-width: 500px;
-            margin: auto;
-        }
-
-        p {
-            font-size: 1em;
-            line-height: 1.75em;
-            border-top: 3px solid;
-            -o-border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
-            border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
-            border-image-slice: 1;
-            border-width: 3px;
-            margin: 0;
-            padding: 40px;
-            counter-increment: section;
-            position: relative;
-            color: #34435E;
-        }
-        p:before {
-
-            position: absolute;
+        .circle {
+            font-weight: bold;
+            padding: 15px 20px;
             border-radius: 50%;
-            padding: 10px;
-            height: 1.25em;
-            width: 1.25em;
-            background-color: #34435E;
-            text-align: center;
-            line-height: 1.25em;
-            color: #ffffff;
-            font-size: 1em;
+            background-color: #ED8D8D;
+            color: #4D4545;
+            max-height: 50px;
+            z-index: 2;
         }
 
-        p:nth-child(odd) {
-            border-right: 3px solid;
-            padding-left: 0;
+        .how-it-works.row {
+            display: flex;
         }
-        p:nth-child(odd):before {
-            left: 100%;
-            margin-left: -20px;
+        .how-it-works.row .col-2 {
+            display: inline-flex;
+            align-self: stretch;
+            align-items: center;
+            justify-content: center;
+        }
+        .how-it-works.row .col-2::after {
+            content: "";
+            position: absolute;
+            border-left: 3px solid #ED8D8D;
+            z-index: 1;
+        }
+        .how-it-works.row .col-2.bottom::after {
+            height: 50%;
+            left: 50%;
+            top: 50%;
+        }
+        .how-it-works.row .col-2.full::after {
+            height: 100%;
+            left: calc(50% - 3px);
+        }
+        .how-it-works.row .col-2.top::after {
+            height: 50%;
+            left: 50%;
+            top: 0;
         }
 
-        p:nth-child(even) {
-            border-left: 3px solid;
-            padding-right: 0;
+        .timeline div {
+            padding: 0;
+            height: 40px;
         }
-        p:nth-child(even):before {
-            right: 100%;
-            margin-right: -20px;
+        .timeline hr {
+            border-top: 3px solid #ED8D8D;
+            margin: 0;
+            top: 17px;
+            position: relative;
+        }
+        .timeline .col-2 {
+            display: flex;
+            overflow: hidden;
+        }
+        .timeline .corner {
+            border: 3px solid #ED8D8D;
+            width: 100%;
+            position: relative;
+            border-radius: 15px;
+        }
+        .timeline .top-right {
+            left: 50%;
+            top: -50%;
+        }
+        .timeline .left-bottom {
+            left: -50%;
+            top: calc(50% - 3px);
+        }
+        .timeline .top-left {
+            left: -50%;
+            top: -50%;
+        }
+        .timeline .right-bottom {
+            left: 50%;
+            top: calc(50% - 3px);
         }
 
-        p:first-child {
-            border-top: 0;
-            border-top-right-radius: 0;
-            border-top-left-radius: 0;
-        }
 
-        p:last-child {
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-        }
 
         .crop img {
-            width: 200px;
-            height: 400px;
+            width: 15em;
+            height: 15em;
             margin: -75px 0 0 -100px;
+            object-fit: cover;
         }
     </style>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -109,27 +125,76 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="jumbotron">
-<main>
-    <p><div class="crop">
-<img width="280" height="280" class="img-thumbnail" src=" https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/67379991_2393631050959157_1310575099614593024_n.jpg?_nc_cat=103&_nc_oc=AQmO_hwgo7AUTwNz34M-LrdYIvTLnfeTQ_OgQemJXvTPi9F36-UUcWhJF_yrCAm26VA&_nc_ht=scontent-iad3-1.xx&oh=ee7fac1292db1e899aefa04ff1ced1cb&oe=5E38CC64"  alt="...">
-    July 20th 2019 in DC
-    </div></p>
-    <p>My first marching perforance on July 4th in DC.</p>
 
-    <p>I joined the band on July 1st 2015</p>
-</main></div>
+<div class="container-fluid blue-bg">
+    <div class="container">
+        <h2 class="pb-3 pt-2">Timeline</h2>
+        <!--first section-->
+        <div class="row align-items-center how-it-works">
+            <div class="col-2 text-center bottom">
+                <div class="circle">1</div>
+            </div>
+            <div class="col-6">
+                <h5>June 2015</h5>
+                    <p>I joined the band. It's a special day for me.</p></div>
+        </div>
+        <!--path between 1-2-->
+        <div class="row timeline">
+            <div class="col-2">
+                <div class="corner top-right"></div>
+            </div>
+            <div class="col-8">
+                <hr/>
+            </div>
+            <div class="col-2">
+                <div class="corner left-bottom"></div>
+            </div>
+        </div>
+        <!--second section-->
+        <div class="row align-items-center justify-content-end how-it-works">
+            <div class="col-6 text-right">
+                <h5>July 4th 2015</h5>
+                <p>My first marching performance.</p></div>
+            <div class="col-2 text-center full">
+                <div class="circle">2</div>
+            </div>
+        </div>
+        <!--path between 2-3-->
+        <div class="row timeline">
+            <div class="col-2">
+                <div class="corner right-bottom"></div>
+            </div>
+            <div class="col-8">
+                <hr/>
+            </div>
+            <div class="col-2">
+                <div class="corner top-left"></div>
+            </div>
+        </div>
+        <!--third section-->
+        <div class="row align-items-center how-it-works">
+            <div class="col-2 text-center top">
+                <div class="circle">3</div>
+            </div>
 
+                    <img style="width:15em;height:15em;object-fit:cover;" src=" https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/67379991_2393631050959157_1310575099614593024_n.jpg?_nc_cat=103&_nc_oc=AQmO_hwgo7AUTwNz34M-LrdYIvTLnfeTQ_OgQemJXvTPi9F36-UUcWhJF_yrCAm26VA&_nc_ht=scontent-iad3-1.xx&oh=ee7fac1292db1e899aefa04ff1ced1cb&oe=5E38CC64">
+                    <p>July 20th 2019 in DC <p>
 
-
-
-
-
-
-
+            </div>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
